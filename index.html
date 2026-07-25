@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickRecharge - Home</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+
+<section class="hero container">
+  <h1>Recharge Anytime, Anywhere ⚡</h1>
+  <p>Fast, secure & simple mobile recharges for every network</p>
+
+  <form class="recharge-form" id="quickRechargeForm">
+    <input type="tel" id="mobileNumber" placeholder="Enter Mobile Number" maxlength="10" required>
+    <select id="operator" required>
+      <option value="">Select Operator</option>
+      <option>Jio</option>
+      <option>Airtel</option>
+      <option>Vi</option>
+      <option>BSNL</option>
+    </select>
+    <select id="circle" required>
+      <option value="">Select Circle</option>
+      <option>Tamil Nadu</option>
+      <option>Karnataka</option>
+      <option>Delhi</option>
+      <option>Maharashtra</option>
+    </select>
+    <button class="btn" type="submit">View Plans</button>
+  </form>
+</section>
+
+<section class="container">
+  <div class="features">
+    <div class="card feature-card">
+      <div class="icon">⚡</div>
+      <h3>Instant Recharge</h3>
+      <p>Recharge processed in seconds</p>
+    </div>
+    <div class="card feature-card">
+      <div class="icon">🔒</div>
+      <h3>Secure Payments</h3>
+      <p>Simulated safe payment flow</p>
+    </div>
+    <div class="card feature-card">
+      <div class="icon">📊</div>
+      <h3>Plan Comparison</h3>
+      <p>Compare data, talktime & validity</p>
+    </div>
+    <div class="card feature-card">
+      <div class="icon">🧾</div>
+      <h3>Transaction History</h3>
+      <p>Track all your recharges</p>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+<script src="js/common.js"></script>
+<script>
+  renderNavbar('home');
+  renderFooter();
+
+  document.getElementById('quickRechargeForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const number = document.getElementById('mobileNumber').value;
+    const operator = document.getElementById('operator').value;
+    const circle = document.getElementById('circle').value;
+
+    if(number.length !== 10){
+      showToast("Enter a valid 10-digit number");
+      return;
+    }
+    localStorage.setItem("rechargeInfo", JSON.stringify({number, operator, circle}));
+    window.location.href = "plans.html";
+  });
+</script>
+</body>
+</html>
+
 
