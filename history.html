@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History - QuickRecharge</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="container">
+  <h2>Transaction History</h2>
+  <input type="text" id="searchBox" placeholder="Search by mobile number" style="padding:10px;border-radius:8px;border:1px solid #d7d9e6;margin:14px 0;width:100%;max-width:300px;">
+  <div class="card">
+    <table class="txn-table">
+      <thead><tr><th>Txn ID</th><th>Number</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+      <tbody id="historyBody"></tbody>
+    </table>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/common.js"></script>
+<script src="js/history.js"></script>
+<script>renderNavbar('history'); renderFooter(); requireLogin();</script>
+</body>
+</html>
+
 
