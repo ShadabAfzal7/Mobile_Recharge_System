@@ -1,1 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - QuickRecharge</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="navbar-placeholder"></div>
+<div class="container">
+  <div class="card" style="max-width:500px;margin:0 auto;">
+    <h2>My Profile</h2>
+    <div id="profileInfo" style="margin-top:16px;"></div>
+    <button class="btn" style="margin-top:16px;" onclick="logout()">Logout</button>
+  </div>
+</div>
+<div id="footer-placeholder"></div>
+<script src="js/common.js"></script>
+<script>
+  renderNavbar('profile');
+  renderFooter();
+  requireLogin();
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  document.getElementById("profileInfo").innerHTML = `
+    <p><b>Name:</b> ${user.name}</p>
+    <p><b>Email:</b> ${user.email}</p>
+  `;
+</script>
+</body>
+</html>
+
 
